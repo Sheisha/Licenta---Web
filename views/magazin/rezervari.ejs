@@ -1,0 +1,43 @@
+﻿<%- include('../includes/inceput.ejs') %>
+<link rel="stylesheet" href="/css/rezervari.css">
+</head>
+
+<body>
+    <%- include('../includes/navigare.ejs') %>
+
+    <main>
+        <% if (rezervari.length <= 0) { %>
+            <h1>Nu aveti nici o rezervare inca... !</h1>
+        <% } else { %>
+            <% for (let rezervare_data of rezervari_data) { %>
+                
+                <div class="rezervari_data">
+                    <h2> <%= rezervare_data %> </h2>
+                </div>
+                <ul class="rezervari">
+                    <% for (let rezervare of rezervari) { %>
+                        <% var values = rezervare.data.split(" "); %>
+                        <% var rez = values[1] %>
+                        
+                        <% if (rezervare_data === rez) { %>
+                        
+
+                            <li class="rezervari__item">
+                                <h1> <%= rezervare.data %> - ora: <%= rezervare.ora %> - <a href="/rezervari/<%= rezervare._id %>">Factura</a> </h1>
+                                <h1> Id - <%= rezervare._id %> </h1>
+                                
+                                <ul class="rezervari__products">
+                                    <% rezervare.servicii.forEach(s => { %>
+                                        <li class="rezervari__products-item"><%= s.serviciu.tipServiciu %> (<%= s.serviciu.tipVehicul %>)</li>
+                                    <% }); %>
+                                </ul>
+                            </li>
+
+                        <% } %>
+
+                    <% } %>
+                </ul>
+            <% } %>
+        <% } %>         
+    </main>
+<%- include('../includes/sfarsit.ejs') %>

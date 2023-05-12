@@ -1,0 +1,96 @@
+﻿<%- include('../includes/inceput.ejs') %>
+<link rel="stylesheet" href="/css/auth.css">
+<link rel="stylesheet" href="/css/forms.css">
+
+</head>
+
+<body>
+  <%- include('../includes/navigare.ejs') %>
+  <% if (errorMessage) { %>
+    <div class="user-message user-message--error"><%= errorMessage %></div>
+  <% } %>
+  <% if (succesModificare) { %>
+    <div class="alert alert-success" role="alert">
+      <h6 class="mainColour"> Modificare cu succes!</h6>
+    </div>
+  <% } %>
+
+  <div class="card profil-card" style="width: 35rem;">
+    <div class="card-header">
+      <h2>E-mail: <%= user.email%></h2>
+    </div>
+    <ul class="list-group list-group-flush">
+<form action="/profil" method="POST">
+        
+        
+      <li class="list-group-item">
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Nume utilizator: </span>
+          </div>
+          <input
+                    class="form-control <%= validationErrors.find(e => e.param === 'username') ? 'invalid' : '' %>"
+                    name="username"
+                    id="username" 
+                    value="<%= user.username %>"
+                    aria-label="Default" 
+                    aria-describedby="inputGroup-sizing-default">
+
+        </div>
+
+      </li>
+      <li class="list-group-item">
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Nr vehicul: </span>
+          </div>
+          <input
+                    class="form-control <%= validationErrors.find(e => e.param === 'numarVehicul') ? 'invalid' : '' %>"
+                    name="numarVehicul"
+                    id="numarVehicul" 
+                    value="<%= user.numarVehicul %>"
+                    aria-label="Default" 
+                    aria-describedby="inputGroup-sizing-default"
+                    onkeyup="this.value = this.value.toUpperCase();">
+         
+        </div>
+
+      </li>
+      <li class="list-group-item">
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Nr telefon: </span>
+          </div>
+          <input
+                    class="form-control <%= validationErrors.find(e => e.param === 'telefon') ? 'invalid' : '' %>"
+                    name="telefon"
+                    id="telefon" 
+                    value="<%= user.telefon %>"
+                    aria-label="Default" 
+                    aria-describedby="inputGroup-sizing-default">
+        </div>
+
+      </li>
+
+    </ul>
+  </div>
+
+  <button class="btn" type="submit">
+    Salveaza 
+  </button>
+ 
+</form>
+ 
+ 
+
+ 
+ <div style="margin: 2rem;"> 
+   <a href="/resetarePW">Resetare Parola</a>
+ </div>
+
+
+  <%- include('../includes/sfarsit.ejs') %>
+</body>

@@ -1,0 +1,49 @@
+.rezervari {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rezervari__item h1 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.rezervari__item {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 3rem;
+  margin: 1rem 15% 2rem 15%;
+}
+
+.rezervari__products {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.rezervari__products-item {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #798fb4;
+    color: #798fb4;
+}
+
+.rezervare-utilizator{
+  margin: auto;
+  width: 40rem;
+  max-width: 90%;
+  text-align: start;
+}
+
+.rezervare-btn{
+  margin: 1rem;
+}
+
+.plata{
+  font-weight: bold;
+}
+
+.rezervari_data{
+  text-align: start;
+  padding: 2rem 3rem 2rem 3rem;
+}

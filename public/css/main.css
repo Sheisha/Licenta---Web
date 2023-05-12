@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+* {
+  box-sizing: border-box;
+}
+h1{
+  margin: 1rem;
+}
+body {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  
+  padding: 0;
+  margin: auto;
+}
+
+.alb{
+  background-color: white;
+}
+
+
+
+form {
+  display: inline;
+}
+
+.card-checkout{
+  padding: 2rem;
+  text-align: start;
+  margin: auto;
+  width: 40rem;
+  max-width: 90%;
+}
+
+.card-checkout h1,
+.card-checkout h2,
+.card-checkout input{
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+
+.card-checkout b,
+.card-checkout button{
+  text-align: center;
+}
+
+.card-checkout-button{
+  margin: auto;
+  width: 5rem;
+  max-width: 20%;
+  text-align: center;
+}
+
+#order-btn-card{
+  width: 5rem;
+  /* width: 20%; */
+  padding: 0.25rem 1rem;
+  margin:auto;
+
+}
+
+.order-btn-card__div{
+  text-align: center;
+  margin: 1rem;
+}
+
+.centered {
+  text-align: center;
+}
+
+.mainColour {
+  color:#798fb4;
+}
+
+.red {
+  color: red;
+}
+
+.image {
+  height: 20rem;
+}
+
+.image img {
+  height: 100%;
+}
+
+.main-header {
+  width: 100%;
+  height: 3.5rem;
+  background-color: #798fb4;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.main-header__nav {
+  height: 100%;
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.main-header__item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.main-header__item {
+
+  margin: 0 1rem;
+  padding: 0;
+}
+
+.main_imagine{
+  height: 30rem;
+  width: 100%;
+  padding: 0 1.5rem;
+  text-align: center;
+
+  background-image: url("/imagini/masina.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+
+
+.main_imagine__titlu{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 4rem;
+  text-align: center;
+  margin: 0;
+  padding: 8rem 1.5rem;
+  color: #ffffff;
+
+}
+
+.main-header__item a,
+.main-header__item button {
+  font: inherit;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.main-header__item a:hover,
+.main-header__item a:active,
+.main-header__item a.active,
+.main-header__item button:hover,
+.main-header__item button:active {
+  color: #19195c;
+}
+
+.main_masinaTa{
+  width: 100%;
+  padding: 3rem 2rem;
+}
+
+
+.main_masinaTa__titlu{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 20rem;
+  color: #19195c;
+}
+.main_masinaTa__descriere{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #798fb4;
+}
+
+.main_descriere{
+  background-color: #dce4e9;
+  padding: 5rem;
+}
+
+.mobile-nav {
+  width: 30rem;
+  height: 100vh;
+  max-width: 90%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: white;
+  z-index: 10;
+  padding: 2rem 1rem 1rem 2rem;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+.mobile-nav__item-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav__item {
+  margin: 1rem;
+  padding: 0;
+  text-align: left;
+}
+
+.mobile-nav__item a,
+.mobile-nav__item button {
+  font: inherit;
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+  padding: 0.5rem 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-nav__item a:active,
+.mobile-nav__item a:hover,
+.mobile-nav__item a.active,
+.mobile-nav__item button:hover,
+.mobile-nav__item button:active {
+  background: #798fb4;
+  color: white;
+  border-radius: 3px;
+}
+
+#side-menu-toggle {
+  border: 1px solid white;
+  font: inherit;
+  padding: 0.5rem;
+  display: block;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+#side-menu-toggle:focus {
+  outline: none;
+}
+
+#side-menu-toggle:active,
+#side-menu-toggle:hover {
+  color: #1d3154;
+  border-color: #1d3154;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  display: none;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.card__header,
+.card__content {
+  padding: 1rem;
+}
+
+.card__header h1,
+.card__content h1,
+.card__content h2,
+.card__content p {
+  margin: 0;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__image img {
+  width: 100%;
+}
+
+.card__actions {
+  padding: 1rem;
+  text-align: center;
+}
+
+.card__actions button,
+.card__actions a {
+  margin: 0 0.25rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+  font: inherit;
+  border: 1px solid #798fb4;
+  color: #798fb4;
+  background: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-admin {
+  background-color: #798fb4;
+  color:#ffffff;
+}
+
+.btn-incepe{
+  display: block;
+  color:#ffffff;
+  background-color: #798fb4;
+  margin: 5rem;
+}
+
+.dropdown-menu {
+  background-color: #172845;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active{
+  background-color: #798fb4;
+}
+/* .a-admin{
+  color: #19195c;
+  background-color: black;
+} */
+
+.btn:hover,
+.btn:active,
+.btn:focus{
+  background-color: #172845;
+  color: #fdfdfd;
+}
+
+.btn-danger {
+  color: red;
+  border-color: red;
+}
+
+.btn-danger:hover,
+.btn-danger:active {
+  background: red;
+  color: white;
+}
+
+.user-message {
+  margin: auto;
+  width: 90%;
+  border: 1px solid #4771fa;
+  padding: 0.5rem;
+  border-radius: 3px;
+  background: #798fb4;
+  text-align: center;
+}
+
+.user-message--error {
+  border-color: red;
+  background: rgb(255, 176, 176);
+  color: red;
+}
+
+@media (min-width: 768px) {
+  .main-header__nav {
+    display: flex;
+  }
+
+  #side-menu-toggle {
+    display: none;
+  }
+
+  .user-message {
+    width: 30rem;
+  }
+}
+
+.container-fluid{
+  padding:5% 5%;
+}
+
+#testimonials{
+  /* 7% -> top & bottom, 15% -> left & right */
+    /* padding: 7% 15%; */
+    background-color: #ffffff;
+    position: relative;
+  }
+  .testimonial-text{
+    font-size: 2rem;
+    line-height:  1.5;
+  }
+  
+  .testimonial-img{
+    width: 100%;
+    /* border-radius: 100%; */
+    margin-top: 1rem;
+  }
+  
+  #press{
+    padding-bottom: 3%;
+  }
+  .press-logo{
+    width: 15%;
+    margin: 20px 20px 50px;
+  }
+  .carousel-control-prev-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23c593d8' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
+}
+ 
+  .carousel-control-next-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23c593d8' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
+}
+
+.detalii_spalatorie__imagine{
+  display:flex;
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+  width: 100%;
+  border-radius: 10%;
+}
+
+.imagine-index{
+  background-image: url("/imagini/index_masina.jpg");
+}
+.imagine-detalii-polish{
+  background-image: url("/imagini/polish.jpg");
+}
+.imagine-detalii-exterior{
+  background-image: url("/imagini/exterior.jpg");
+}
+
+.imagine-detalii-interior{
+  background-image: url("/imagini/interior.jpg");
+}
+
+.imagine-detalii-polish_masina{
+  background-image: url("/imagini/polish_masina.jpg");
+}
+
+.detalii_spalatorie__text_item{
+  text-align: start;
+  padding: 1rem 1rem;
+}
+
+.detalii_servicii__item{
+  margin: auto;
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+}
+
+.detalii_spalatorie__text_item h4, 
+.detalii_spalatorie__text_item h5,
+.detalii_spalatorie__text_item h3{
+  margin: 2rem;
+}
+
+.contacte {
+  margin: 1rem 10rem;
+  text-align: start;
+}
+
+
+.tipVehicul__label{
+  text-align: start;
+  padding: 2rem;
+
+}
+
+
+
+.nume_nrVehicul__checkout h1,
+.nume_nrVehicul__checkout input{
+  display: inline;
+}
+
+.list-group-item input{
+ margin: auto; 
+}

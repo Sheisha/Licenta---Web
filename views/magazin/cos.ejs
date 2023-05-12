@@ -1,0 +1,31 @@
+﻿<%- include('../includes/inceput.ejs') %>
+<link rel="stylesheet" href="/css/cos.css">
+
+    </head>
+
+    <body>
+        <%- include('../includes/navigare.ejs') %>
+        <main>
+            <% if(servicii.length > 0) { %>
+                <ul class="cos__item-list">
+                    <% servicii.forEach(s => { %>
+                        <li class="cos__item"> 
+                           <h1><%= s.serviciuId.tipServiciu %></h1>
+                           <h1><%= s.serviciuId.tipVehicul %></h1>
+                           <h2><%= s.serviciuId.pret %> RON</h2>
+                           <form action="/cos-sterge-serviciu" method="POST">
+                                <input type="hidden" value="<%= s.serviciuId._id %>" name="serviciuId">
+                                <button class="btn" type="submit">Sterge</button>
+                           </form>
+                        </li>
+                    <% })  %>
+                </ul>
+                <hr>
+                <div class="centered">
+                    <a class="btn" href="/rezervare_alegeOra">Spre rezervare</a>
+                </div>
+            <%  } else { %>  
+                <h1> Nu aveti produse in cos... </h1>
+            <% } %>
+        </main>
+<%- include('../includes/sfarsit.ejs') %>

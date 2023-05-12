@@ -1,0 +1,175 @@
+﻿<div class="backdrop"></div>
+<header class="main-header">
+  <button id="side-menu-toggle">Menu</button>
+  <nav class="main-header__nav">
+    <ul class="main-header__item-list">
+      <li class="main-header__item">
+        <a class="<%= path === '/' ? 'active' : '' %>" href="/"
+          >Spalatorie Auto</a
+        >
+      </li>
+      <li class="main-header__item">
+        <a class="<%= path === '/detalii_servicii' ? 'active' : '' %>" href="/detalii_servicii"
+          >Servicii</a
+        >
+      </li>
+
+      <% if (isAuthenticated && eAdmin) {%>
+        <li class="main-header__item">
+          <a
+            class="<%= path === '/rezervari' ? 'active' : '' %>"
+            href="/rezervari"
+            >Rezervari</a
+          >
+        </li>
+        <li class="main-header__item">
+          <a class="<%= path === '/cos' ? 'active' : '' %>" href="/cos">Cos</a>
+        </li>
+        <div class="btn-group">
+          <button type="button" class="btn btn-admin dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Admin
+          </button>
+          <div class="dropdown-menu mainColour">
+            <li class="main-header__item">
+              <a class="dropdown-item a-admin <%= path === '/admin/servicii' ? 'active' : '' %>" href="/admin/servicii">Admin Servicii
+              </a>
+            </li>
+            <li class="main-header__item">
+              <a
+                class="dropdown-item a-admin <%= path === '/admin/adauga-serviciu' ? 'active' : '' %>"
+                href="/admin/adauga-serviciu"
+                >Adauga Serviciu
+              </a>
+            </li>
+            <li class="main-header__item">
+              <a
+                class="dropdown-item a-admin <%= path === '/admin/tabelRezervari' ? 'active' : '' %>"
+                href="/admin/tabelRezervari"
+                >Admin Tabel Rezervari</a
+              >
+            </li>
+          </div>
+        </div>
+      
+      
+      <% } %>
+      <% if (isAuthenticated && !eAdmin) { %>
+        <li class="main-header__item">
+          <a
+            class="<%= path === '/rezervari' ? 'active' : '' %>"
+            href="/rezervari"
+            >Rezervari</a
+          >
+        </li>
+        <li class="main-header__item">
+          <a class="<%= path === '/cos' ? 'active' : '' %>" href="/cos">Cos</a>
+        </li>
+      <% } %>
+    
+    </ul>
+    <ul class="main-header__item-list">
+      <% if (!isAuthenticated) { %>
+      <li class="main-header__item">
+        <a class="<%= path === '/login' ? 'active' : '' %>" href="/login"
+          >Login</a
+        >
+      </li>
+      <li class="main-header__item">
+        <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup"
+          >Signup</a
+        >
+      </li>
+      <% } else { %>
+      <li class="main-header__item">
+        <a class="<%= path === '/profil' ? 'active' : '' %>" href="/profil"
+          >Profil</a
+        >
+      </li>
+      <li class="main-header__item">
+        <form action="/logout" method="post">
+          <button type="submit">Logout</button>
+        </form>
+      </li>
+      <% } %>
+    </ul>
+  </nav>
+</header>
+
+<nav class="mobile-nav">
+  <ul class="mobile-nav__item-list">
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/' ? 'active' : '' %>" href="/"
+        >Spalatorie Auto</a
+      >
+    </li>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/detalii_servicii' ? 'active' : '' %>" href="/detalii_servicii"
+        >Servicii</a
+      >
+    </li>
+    <% if (isAuthenticated && eAdmin) {%>
+      <li class="mobile-nav__item">
+        <a
+          class="<%= path === '/rezervari' ? 'active' : '' %>"
+          href="/rezervari"
+          >Rezervari</a
+        >
+      </li>
+      <li class="mobile-nav__item">
+        <a class="<%= path === '/cos' ? 'active' : '' %>" href="/cos">Cos</a>
+      </li>
+    <li class="mobile-nav__item">
+      <a
+        class="<%= path === '/admin/servicii' ? 'active' : '' %>"
+        href="/admin/servicii"
+        >Admin Servicii</a
+      >
+    </li>
+    <li class="mobile-nav__item">
+      <a
+        class="<%= path === '/admin/adauga-serviciu' ? 'active' : '' %>"
+        href="/admin/adauga-serviciu"
+        >Adauga Serviciu
+      </a>
+    </li>
+    <li class="mobile-nav__item">
+      <a
+        class="<%= path === '/admin/tabelRezervari' ? 'active' : '' %>"
+        href="/admin/tabelRezervari"
+        >Admin Tabel Rezervari</a
+      >
+    </li>
+    <% } %> <% if (isAuthenticated && !eAdmin) { %>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/rezervari' ? 'active' : '' %>" href="/rezervari"
+        >Rezervari</a
+      >
+    </li>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/cos' ? 'active' : '' %>" href="/cos">Cos</a>
+    </li>
+    <% } %> <% if (!isAuthenticated) { %>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/login' ? 'active' : '' %>" href="/login"
+        >Login</a
+      >
+    </li>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup"
+        >Signup</a
+      >
+    </li>
+    <% } else { %>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/profil' ? 'active' : '' %>" href="/profil"
+        >Profil</a
+      >
+    </li>
+    <li class="mobile-nav__item">
+      <form action="/logout" method="post">
+        <button type="submit">Logout</button>
+      </form>
+    </li>
+    <% } %>
+  </ul>
+</nav>

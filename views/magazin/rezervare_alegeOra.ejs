@@ -1,0 +1,40 @@
+﻿<%- include('../includes/inceput.ejs') %>
+    <link rel="stylesheet" href="/css/serviciu.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/forms.css">
+
+
+</head>
+
+<body>
+    <%- include('../includes/navigare.ejs') %>
+
+    <main>
+            
+            <div class="form-control">
+
+
+                    <% if (oreValabile.length > 0) { %>
+                    <label for="oraRezervare">Ora rezervare</label>
+
+                        
+                        <% for (let ora of oreValabile) { %>
+                                <div>
+                                    
+                                     <form action="/checkout" method="post">
+
+                                        <button class="btn <%=ora.valabilitate === 3 ? 'btn-danger disabled' : '' %>" type="submit" > <%=ora.ora%> </button>
+                                        <input type="hidden" name="oraId" value="<%= ora._id %>">
+                                    </form> 
+
+                                </div>
+                        <% } %>
+                    <% } else { %>
+                        <h2> Nu se mai pot face rezervari azi. Reveniti maine intre orele 8:00 AM - 16:00 PM.</h2>
+                    <% } %>
+
+                     
+            </div>
+
+    </main>
+<%- include('../includes/sfarsit.ejs') %>

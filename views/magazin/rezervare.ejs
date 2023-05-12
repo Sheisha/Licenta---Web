@@ -1,0 +1,45 @@
+﻿<%- include('../includes/inceput.ejs') %>
+    <link rel="stylesheet" href="/css/serviciu.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/forms.css">
+
+
+</head>
+
+<body>
+    <%- include('../includes/navigare.ejs') %>
+
+    <main>
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <!-- <form class="login-form" action="/rezervare" method="POST" novalidate> -->
+
+            <div class="form-control">
+                <label class="tipVehicul__label"for="tipVehicul">Alegeti tip Vehicul:</label>
+                <ul>
+                    <% for (let tip of tipVehicul) { %>
+                            
+                        
+                        <!-- <label for="<%=tip%>"><%=tip%></label> -->
+                        <div class="tipVehicul">
+                            <form action="/rezervare" method="POST">
+                                <input 
+                                    id="<%= tip %>" 
+                                    type="submit" 
+                                    name="tipVehicul" 
+                                    class="btn" 
+                                    value="<%=tip%>"
+                                >
+                                <input type="hidden" name="tipVehiculAles" value="<%= tip %>">
+                            </form>
+                        </div>
+                        
+                    <% } %>
+                </ul>
+                    
+
+            </div>
+
+    </main>
+<%- include('../includes/sfarsit.ejs') %>

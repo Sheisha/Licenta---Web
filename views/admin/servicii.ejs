@@ -1,0 +1,69 @@
+﻿<%- include('../includes/inceput.ejs') %>
+    <link rel="stylesheet" href="/css/serviciu.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigare.ejs') %>
+
+            <main>
+                <% if (succesModificareAdaugare) { %>
+                    <div class="alert alert-success" role="alert">
+                      <h6 class="mainColour"> Modificare / Adaugare serviciu cu succes!</h6>
+                    </div>
+                <% } %>
+                <% if (succesStergere) { %>
+                    <div class="alert alert-success" role="alert">
+                      <h6 class="mainColour"> Stergere serviciu cu succes!</h6>
+                    </div>
+                <% } %>
+
+                <% if (servicii.length > 0) { %>
+                    <% for (let serviciu_titlu of servicii_titlu) { %>
+                    <div class="servicii">
+                        <div class="servicii_titlu">
+                            <h1> <%= serviciu_titlu %> </h1>
+                        </div>
+                        <div class="servicii_articole row">
+                            
+                            <% for (let serviciu of servicii) { %>
+                                <% if (serviciu_titlu === serviciu.tipVehicul) { %>
+                                    <article class="card product-item col-lg-4">
+                                        <header class="card__header">
+                                            <h1 class="product__title">
+                                                <%= serviciu.tipVehicul %>
+                                            </h1>
+                                        </header>
+                                        <div class="card__content">
+                                            <h2 class="product__price">
+                                                <%= serviciu.tipServiciu %>
+                                            </h2>
+                                        </div>
+                                        <div class="card__content">
+                                            <h2 class="product__price">RON
+                                                <%= serviciu.pret %>
+                                            </h2>
+                                        </div>
+                                        <div class="card__actions">
+                                            <a href="/admin/editeaza-serviciu/<%= serviciu._id %>?edit=true" class="btn">Editeaza</a>
+
+                                            <!-- <form action="/admin/serviciu/" method="POST">
+                                                <input type="hidden" value="<%= serviciu._id %>" name="serviciuId">
+                                                <button class="btn" type="button">Sterge</button>
+                                            </form> -->
+
+                                            <a href="/admin/sterge-serviciu/<%= serviciu._id %>" class="btn">Sterge</a>
+
+                                        </div>
+                                    </article>
+                                <% } %>
+                            <% } %>
+                        </div>
+                    </div>
+
+                        <% } %>
+                <% } else { %>
+                        <h1>Nu sunt servicii inca...</h1>
+                <% } %>
+            </main>
+            <%- include('../includes/sfarsit.ejs') %>
+            <script src="/js/admin.js"></script>

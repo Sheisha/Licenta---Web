@@ -1,0 +1,53 @@
+﻿<%- include('../includes/inceput.ejs') %>
+<link rel="stylesheet" href="/css/rezervari.css">
+
+</head>
+
+<body>
+  <%- include('../includes/navigare.ejs') %>
+
+  <a class="btn rezervare-btn" href="/admin/tabelRezervari"> Inapoi la tabel </a>
+
+  <div class="card rezervare-utilizator">
+    <div class="card-header">
+      <h3>Rezervare - Id <%= rezervare._id %></h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"> <strong> Detalii Cumparator: </strong></li>
+      <ul>
+        <li class="list-group-item">User email: <%= rezervare.user.email%></li>
+        <li class="list-group-item">Nume cumparator: <%= rezervare.numeCumparator%></li>
+        <li class="list-group-item">Nr Vehicul: <%= rezervare.numarVehicul%></li>
+        <li class="list-group-item">Nr Telefon: <%= rezervare.telefon%></li>
+      </ul>
+      <hr>
+      <li class="list-group-item"> <strong>  Detalii Rezervare: </strong></li>
+      <ul>
+        <li class="list-group-item">Data: <%= rezervare.data%></li>
+        <li class="list-group-item">Ora: <%= rezervare.ora%></li>
+        <li class="list-group-item plata">Plata: <%= rezervare.plata.metoda%> , <%= rezervare.plata.platit === false ? 'neplatit' : 'platit' %></li>
+        <li class="list-group-item">Servicii pentru masina de tip <%= rezervare.servicii[0].serviciu.tipVehicul %>%>: </li>
+        <ul>
+          <% for (let i = 0; i<=rezervare.servicii.length-1; i++) { %>
+            <li class="list-group-item"> <%= rezervare.servicii[i].serviciu.tipServiciu%>  - <%= rezervare.servicii[i].serviciu.pret%> RON</li>
+          <% } %>
+        </ul>
+      </ul>
+      
+      
+    </ul>
+  </div>
+
+
+ 
+
+ <form action="/admin/rezervare/<%=rezervare._id%>" method="POST">
+  <button class="btn btn-success rezervare-btn"> Platit </button>
+ </form>
+ <form action="/admin/rezervareNeplatita/<%=rezervare._id%>" method="POST">
+  <button class="btn btn-danger rezervare-btn"> Neplatit </button>
+ </form>
+
+
+</body>
+  <%- include('../includes/sfarsit.ejs') %>

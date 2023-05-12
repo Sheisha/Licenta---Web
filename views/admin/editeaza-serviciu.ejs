@@ -1,0 +1,52 @@
+﻿<%- include('../includes/inceput.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/serviciu.css">
+</head>
+
+<body>
+   <%- include('../includes/navigare.ejs') %>
+
+    <main>
+        
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <form class="product-form" action="/admin/<% if (editing) { %>editeaza-serviciu<% } else { %>adauga-serviciu<% } %>" method="POST">
+            
+            <div class="form-control">
+                <label for="tipVehicul">Tip Vehicul</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'tipVehicul') ? 'invalid' : '' %>"
+                    type="text" 
+                    name="tipVehicul" 
+                    id="tipVehicul" 
+                    value="<% if (editing || hasError) { %><%= serviciu.tipVehicul %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="tipServiciu">Tip Serviciu</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'tipServiciu') ? 'invalid' : '' %>"
+                    type="text" 
+                    name="tipServiciu" 
+                    id="tipServiciu" 
+                    value="<% if (editing || hasError) { %><%= serviciu.tipServiciu %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="pret">Pret</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'pret') ? 'invalid' : '' %>"
+                    type="number" 
+                    name="pret" 
+                    id="pret" 
+                    step="0.01" 
+                    value="<% if (editing || hasError) { %><%= serviciu.pret %><% } %>">
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= serviciu._id %>" name="serviciuId">
+            <% } %>
+
+
+            <button class="btn" type="submit"><% if (editing) { %>Modifica Serviciu<% } else { %>Adauga Serviciu<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/sfarsit.ejs') %>

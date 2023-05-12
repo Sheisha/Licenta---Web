@@ -1,0 +1,42 @@
+﻿<%- include('../includes/inceput.ejs') %>
+</head>
+
+<body>
+  <%- include('../includes/navigare.ejs') %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Ora</td>
+        <% for (let i=1; i<= spatiiTotaleSpalatorie ; i++) { %>
+          <td>spatiu <%= i %></td>
+        <% } %>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% for (let spatiu of spatii) { %>
+        <tr>
+          <td><%=spatiu.ora%></td>
+    
+           <% for (let rezervare of rezervari) { %>
+            
+            <% if (spatiu.ora === rezervare.ora) { %>
+               <td> <a class="<%= rezervare.plata.platit === false ? 'red' : '' %>"href="/admin/rezervare/<%=rezervare._id%>">Rezervat - <%= rezervare.numarVehicul%></a> </td> 
+    
+            <% } %> 
+    
+    
+            <% } %> 
+          
+    
+        </tr>
+        <% } %>
+    </tbody>
+    
+  </table>
+
+  <h4 class="red"> Scris rosu - Neplatit</h4>
+  <h4 style="color:rgb(91, 128, 188)"> Scris albastru - Platit</h4>
+
+  <%- include('../includes/sfarsit.ejs') %>
+</body>
